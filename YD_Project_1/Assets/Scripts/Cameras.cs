@@ -3,7 +3,7 @@ using System.Collections;
 using System.Timers;
 
 public class Cameras : MonoBehaviour {
-
+    /*
 	float speed;
 
 	// Use this for initialization
@@ -19,5 +19,5 @@ public class Cameras : MonoBehaviour {
 		    if(Input.GetKey(KeyCode.LeftArrow)) transform.Translate (-Vector3.right * Time.deltaTime * speed);
 		    if(Input.GetKey(KeyCode.RightArrow)) transform.Translate (Vector3.right * Time.deltaTime * speed); 
 
-	}
+	}*/
 }
