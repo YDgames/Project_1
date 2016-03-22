@@ -4,16 +4,15 @@ using System.Timers;
 
 public class Cameras : MonoBehaviour {
     
-	GameObject player = null;
-
+	public GameObject player = null;
+    private Vector3 offset;
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find ("Player");
+        offset = transform.position - player.transform.position;
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		Vector3 v3 = player 	.transform.position;
-		transform.position = new Vector3 (v3.x, v3.y + 70, v3.z - 50);
+	void LateUpdate () {
+        transform.position = player.transform.position + offset;
 	}
 }

@@ -19,4 +19,5 @@ public class Player_Controller : MonoBehaviour {
 		if(Input.GetKey(KeyCode.A)) rb.AddForce (-Vector3.right * Time.deltaTime * speed);
 		if(Input.GetKey(KeyCode.D)) rb.AddForce (Vector3.right * Time.deltaTime * speed); 
 	}
+
 }
