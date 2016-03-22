@@ -17,3 +17,16 @@ Github windows에서 Snyc 클릭
 git stash pop
 
 Github windows에서 Snyc 클릭
+
+---------------------------------------------
+
+Sync시 Unmerged 애러
+
+git reset --hard
+git pull --rebase
+git rebase --skip
+git pull
+
+*주의사항
+작업하던 내용 다날라가고 현재 깃에 등록되어있는 최신 컴밋으로
+덮어씌워짐
