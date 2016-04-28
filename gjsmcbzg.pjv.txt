@@ -1,0 +1,17 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   YD_Project_1/Assets/Scripts/Player/Player.cs
+#	modified:   YD_Project_1/Library/ScriptAssemblies/Assembly-CSharp.dll
+#	modified:   YD_Project_1/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+#	modified:   YD_Project_1/Library/assetDatabase3
+#
+# Untracked files:
+#	YD_Project_1/Library/UnityAssemblies/UnityEngine.xml
+#	YD_Project_1/Temp/
+#
+
