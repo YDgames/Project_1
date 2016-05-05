@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/YD.unity
-  isLoaded: 1
-  isActive: 1
