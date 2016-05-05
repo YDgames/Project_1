@@ -10,7 +10,7 @@ public class Cameras : MonoBehaviour {
 		// 플레이어가 있으면 따라다니기
 		if (player != null) {
 			Vector3 v3 = player.transform.position;
-			transform.position = new Vector3 (v3.x, v3.y + 15, v3.z - 20);
+			transform.position = new Vector3 (v3.x, v3.y + 1, v3.z - 1);
 		}
 	}
 
