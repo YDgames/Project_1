@@ -45,7 +45,6 @@ public class GameHandler : MonoBehaviour {
 		int X = Mathf.RoundToInt(Random.Range (0f, map.terrainData.size.x));
 		int Z = Mathf.RoundToInt(Random.Range (0f, map.terrainData.size.z));
 		float Y = map.terrainData.GetHeight(X, Z) + player.transform.localScale.x*2;
-		Debug.Log ("height = " + Y);
 		return new Vector3 (X, Y, Z);
 	}
 }
