@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Threading;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour {
 
@@ -8,8 +10,8 @@ public class Player : MonoBehaviour {
 
     private Vector3 MoveVector;
     private Rigidbody rb;
+    List<GameObject> feed;
 
-    GameObject attachingobject = null;
     MeshCollider meshcollider;
     Collider otherplayer = null;  //나중에 쓰레드 처리해야함
 
@@ -20,6 +22,7 @@ public class Player : MonoBehaviour {
     void Start() {
         rb = GetComponent<Rigidbody>();
         meshcollider = GetComponent<MeshCollider>();
+        feed = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -27,18 +30,20 @@ public class Player : MonoBehaviour {
         MoveVector = new Vector3(joystick.Horizontal(), 0, joystick.Vertical());
         Move();
 
-
         //먹이 먹었을때 빨려들어가는 이벤트
-        if (attachingobject != null) {
-            attachingobject.transform.position = Vector3.Lerp(attachingobject.transform.position, transform.position, pickups_lerp_speed);
-            var distance = Vector3.Distance(rb.transform.position, attachingobject.transform.position); //위치 구하기.
-            if(distance < 2) {
-                attachingobject.SetActive(false);
-                float size = (float)(transform.localScale.x + 0.1);
-                transform.localScale = new Vector3(size, size, size);
-                attachingobject = null;
+        if (feed.Count != 0) {
+            for (int i = 0; i < feed.Count; i++) {
+                feed[i].transform.position = Vector3.Lerp(feed[i].transform.position, transform.position, pickups_lerp_speed);
+                var distance = Vector3.Distance(transform.position, feed[i].transform.position); //위치 구하기.
+                if (distance < 2) {
+                    feed[i].SetActive(false);
+                    float size = (float)(transform.localScale.x + 0.05);
+                    transform.localScale = new Vector3(size, size, size);
+                    feed.RemoveAt(i);
+                }
             }
         }
+
 
         if (otherplayer != null) {
             var distance = Vector3.Distance(rb.transform.position, otherplayer.transform.position); //위치 구하기.
@@ -65,10 +70,9 @@ public class Player : MonoBehaviour {
 
     //먹이 먹었을때 구체에 붙는 이벤트
     void OnTriggerEnter(Collider other) {
-
         if (other.gameObject.CompareTag("pickup_square_1")) {
             other.transform.parent = transform;
-            attachingobject = other.gameObject;
+            feed.Add(other.gameObject);
         }
 
         if (other.gameObject.CompareTag("collisionignore")) {  //같은 플레이어 끼리 충돌 무시

@@ -18,6 +18,7 @@ ExportedObj/
 *.booproj
 *.svd
 
+Library/
 Library/AssetImportState
 Library/AssetServerCacheV3
 Library/FailedAssetImports.txt
