@@ -17,3 +17,14 @@ Github windows에서 Snyc 클릭
 git stash pop
 
 Github windows에서 Snyc 클릭
+
+
+
+==== Git Stash unmerged error ====
+
+git reset --hard
+git pull --rebase
+git rebase --skip
+git pull
+
+순차적으로 입력.
