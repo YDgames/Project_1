@@ -44,8 +44,8 @@ public class GameHandler : MonoBehaviour {
 	public Vector3 GetRandomLocation(){
 		int X = Mathf.RoundToInt(Random.Range (0f, map.terrainData.size.x));
 		int Z = Mathf.RoundToInt(Random.Range (0f, map.terrainData.size.z));
-		int Y = Mathf.RoundToInt(map.terrainData.GetHeight(X, Z));
-
+		float Y = map.terrainData.GetHeight(X, Z) + player.transform.localScale.x*2;
+		Debug.Log ("height = " + Y);
 		return new Vector3 (X, Y, Z);
 	}
 }

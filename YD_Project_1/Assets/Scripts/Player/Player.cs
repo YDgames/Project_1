@@ -57,7 +57,7 @@ public class Player : MonoBehaviour {
         }
     }
 
-    public void Move() {
+	public void Move() {
         rb.AddForce(MoveVector * speed * Time.deltaTime);
     }
 
@@ -82,5 +82,4 @@ public class Player : MonoBehaviour {
             }
         }
     }
-
 }
